@@ -22,52 +22,49 @@ const Upload = () => {
 
 
 
-    
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('author', author);
-            formData.append('publish_date', publish_date);
-            formData.append('abstract', abstract);
-            formData.append('category_id', category_id);
-            formData.append('file', file);
-           
-       
-   
-            const paperResponse = await axios.post('https://node-js-backend-almario1.onrender.com/create', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-   
-            if (paperResponse.data.status === 'Success') {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Upload successful',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-                Swal.fire({
-                    title: 'Failed!',
-                    text: 'Upload failed: ' + paperResponse.data.message,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
-        } catch (error) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'An error occurred: ' + error.message,
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-            console.error('Error:', error);
-        }
-    };
-
+      e.preventDefault();
+      try {
+          const formData = new FormData();
+          formData.append('title', title);
+          formData.append('author', author);
+          formData.append('publish_date', publish_date);
+          formData.append('abstract', abstract);
+          formData.append('file', file);
+  
+          const paperResponse = await axios.post('https://node-js-backend-almario1.onrender.com/create', formData, {
+              headers: {
+                  'Content-Type': 'multipart/form-data'
+              }
+          });
+  
+          if (paperResponse.data.status === 'Success') {
+              Swal.fire({
+                  title: 'Success!',
+                  text: 'Upload successful',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+              });
+          } else {
+              // Handle other status scenarios, if needed
+              Swal.fire({
+                  title: 'Error!',
+                  text: 'Upload failed: ' + paperResponse.data.message,
+                  icon: 'error',
+                  confirmButtonText: 'OK'
+              });
+          }
+      } catch (error) {
+          Swal.fire({
+              title: 'Error!',
+              text: 'An error occurred: ' + error.message,
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
+          console.error('Error:', error);
+      }
+  };
+  
 
 
 
@@ -79,13 +76,7 @@ const Upload = () => {
         </div>
       </Container >
 
-
-
-
       <Container className="up-container">
-
-
-
 
         <Form onSubmit={handleSubmit}>
           <FloatingLabel
