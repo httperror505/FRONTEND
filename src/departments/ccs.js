@@ -11,7 +11,7 @@ export default function ComputerStudies () {
             try {
                 // Replace 'departmentId' with the actual ID of the department you want to filter by
          
-                const response = await axios.get(`http://127.0.0.1:9000/compStudies/all`);
+                const response = await axios.get(`http://127.0.0.1:9000/browse/departments/1`);
                 setDocuments(response.data);
                 setLoading(false);
             } catch (error) {

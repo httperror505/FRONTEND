@@ -96,10 +96,6 @@ function SearchResult({ result }) {
             <p>{error}</p>
           ) : (
             <iframe src={fileData} title="PDF Viewer" width="100%" height="600px" ></iframe>
-
-
-
-
           )}
         </Modal.Body>
         <Modal.Footer>

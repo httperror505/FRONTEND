@@ -54,7 +54,7 @@ function SearchBar({ setResults }) {
       <div className="input-wrapper">
         <FaSearch id="search-icon" />
         <input
-          placeholder="title, author, Keyword, etc.."
+          placeholder="Title, Author, Keyword, etc.."
           value={input}
           onChange={(e) => handleChange(e.target.value)}
         />

@@ -72,7 +72,7 @@ const Upload = () => {
       <section id="upload" className="block categories-block">
       <Container fluid className="upload-container">
         <div className="title-bar">
-          <h1 className="title1">Upload</h1>
+          <h1 className="title">Upload</h1>
         </div>
       </Container >
 
